@@ -1,0 +1,497 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Help</TITLE>
+</HEAD>
+<BODY>
+<!-- 目次ー -->
+<TABLE border="0" width="800">
+  <TBODY>
+    <TR>
+      <TD colspan="2"><a name="helpTop"></a>ファイル復号化支援ソフト（Simple and Secure Software for Decryption）（通称　Ｓ3Ｄ）　オンラインヘルプ</TD>
+    </TR>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD colspan="2" valign="top"><a href="#hajimeni">第一章　はじめに</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">１．</TD>
+      <TD width="95%" valign="top"><a href="#hajimeni1">S3D とは</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">２．</TD>
+      <TD width="95%" valign="top"><a href="#hajimeni2">主な機能</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">３．</TD>
+      <TD width="95%" valign="top"><a href="#hajimeni3">動作条件</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">４．</TD>
+      <TD width="95%" valign="top"><a href="#hajimeni4">ライセンス</a></TD>
+    <TR>
+      <TD colspan="2" valign="top">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD colspan="2" valign="top"><a href="#setup">第二章　セットアップ</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">１．</TD>
+      <TD width="95%" valign="top"><a href="#setup1">S3D パッケージの構成</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">２．</TD>
+      <TD width="95%" valign="top"><a href="#setup2">S3D のセットアップ方法</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">３．</TD>
+      <TD width="95%" valign="top"><a href="#setup3">GnuPG のセットアップ方法</a></TD>
+    </TR>
+    <TR>
+      <TD colspan="2" valign="top">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD colspan="2" valign="top"><a href="#opration">第三章　操作方法</a></TD>
+    </TR>
+    <TR>
+      <TD colspan="2" valign="top">&nbsp;&nbsp;<a href="#opration-main">【メイン画面】</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">１．</TD>
+      <TD width="95%" valign="top"><a href="#opration-main1">復号化するファイルの選択</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">２．</TD>
+      <TD width="95%" valign="top"><a href="#opration-main2">選択の解除</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">４．</TD>
+      <TD width="95%" valign="top"><a href="#opration-main4">出力フォルダ選択</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">５．</TD>
+      <TD width="95%" valign="top"><a href="#opration-main5">復号化実行</a></TD>
+    </TR>
+    <TR>
+      <TD colspan="2" valign="top">&nbsp;</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+
+<br><hr>
+<br>
+<!-- 第一章　はじめにー -->
+<table border="0" width="800">
+    <tr>
+        <td colspan="2" valign="top"><a name="hajimeni"></a>第一章　はじめに</td>
+    <tr>
+    <TR>
+      <TD width="5%" align="right" valign="top"></TD>
+      <TD width="95%" valign="top">この章では、S3D の特徴や動作条件、ライセンスについて記述しています。<br></TD>
+    </TR>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">１．</TD>
+      <TD width="95%" valign="top"><a name="hajimeni1">S3D とは</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top"></TD>
+      <TD width="95%" valign="top">この「ファイル復号化支援ソフト（Simple and Secure Software for Decryption）（通称　Ｓ3Ｄ）」は、GnuPGを使用して暗号化されたファイルの復号化を簡単に行うための支援ソフトです。<br>
+選択された複数の暗号化ファイルをGnuPGで復号化します。復号化したファイルがtar.gz(tgz)フォーマットで圧縮されている場合は解凍まで行います。<br></TD>
+    </TR>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">２．</TD>
+    <TD width="95%" valign="top"><a name="hajimeni2">主な機能</a></TD>
+  <TR>
+      <TD></TD>
+      <TD valign="top">
+<!-- テーブルのネスト Start-->
+        <table width="100%">
+          <tr>
+            <td align="right" valign="top" width="5%">１）</td>
+            <td valign="top" width="95%">復号化するファイルを複数指定することが可能です。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%"></td>
+            <td valign="top" width="95%">選択された複数の暗号化ファイルをGnuPGで復号化します。復号化したファイルがtar.gz(tgz)フォーマットで圧縮されている場合は解凍します。<br></td>
+          </tr>
+        </table>
+<!-- テーブルのネスト End-->
+      </TD>
+    </TR>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">３．</TD>
+      <TD width="95%" valign="top"><a name="hajimeni3">動作条件</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top"></TD>
+      <TD width="95%" valign="top">以下のWindows OS が動作する環境下での使用を推奨します。<br>
+      ・Windows XP、Windows Vista、Windows 7<br>
+      </TD>
+    </TR>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">４．</TD>
+      <TD width="95%" valign="top"><a name="hajimeni4">ライセンス</a></TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top"></TD>
+      <TD width="95%" valign="top">S3D には、"GNU 一般公衆利用許諾契約書(GNU General Public License:GPL) Version 3"  (以下GNU GPL)を適用します。
+このライセンスは次のような特徴を持ちます。</TD>
+    </TR>
+    <tr>
+      <td></td>
+      <td>
+         ・ソースコードが公開されている<br>
+         ・誰でも自由にプログラムの複製、頒布、改変ができる<br>
+         ・派生するソフトウェアにもGNU GPLを適用しなければならない<br>
+        ・GNU GPLのより詳しい内容はdoc/COPYING.txtをご覧ください。
+      </td>
+    </tr>
+    <TR>
+      <TD width="5%" align="right" valign="top"></TD>
+      <TD width="95%" valign="top">他の団体・プロジェクト等で作成されたプログラムについて。</TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top"></TD>
+      <TD width="95%" valign="top">このパッケージには、本プログラムを使用するために必要なもので、他の団体・プロジェクト等で作成されたプログラムも同梱されています。<br>
+これらのプログラムの著作権は、それぞれのプログラムの作者が保有しています。<br>
+改変・再配布等の条件はそれぞれのプログラムのライセンスに従ってください。<br><br>
+同梱プログラム<br>
+・tar32.dll   http://openlab.ring.gr.jp/tsuneo/soft/tar32_1/<br>
+・GnuPG   http://www.gnupg.org/download/<br>
+・Qt      http://www.qtsoftware.com/downloads-jp<br>
+<br>
+1) tar32.dll(Ver0.53)<br>
+   吉岡　恒夫さんが開発されたファイルアーカイブ用DLL。<br>
+<br>
+2) GnuPG(Version 1.4.9)<br>
+   GNU Privacy Guard (GnuPG)は Pretty Good Privacy (PGP) の別実装として、<br>
+   GPL に基づいた暗号化ソフト。OpenPGP 規格 (RFC2440) に完全準拠。<br>
+<br>
+3) Qt(キュート)(Version 4.5.1)<br>
+   ノルウェーのQtソフトウェア社によって開発された、C++言語で書かれたクロス・<br>
+   プラットフォームGUIツールキット。オープンソース版のライセンスはGPL。<br>
+      </TD>
+    </TR>
+</table>
+<br>
+<br>
+<a href="#helpTop">トップに戻る</a>
+<br>
+<br>
+
+<table width="800">
+    <tr>
+        <td colspan="2" valign="top"><a name="setup">第二章 セットアップ</td>
+    <tr>
+    <TR>
+      <TD width="5%" align="right" valign="top"></TD>
+      <TD width="95%" valign="top">この章では、パッケージの構成、インストール・アンインストール方法などについて記述しています。</TD>
+    </TR>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">１．</TD>
+      <TD width="95%" valign="top"><a name="setup1">パッケージの構成</a></TD>
+    </TR>
+    <tr>
+      <td></td>
+      <td><table>
+        <tr><td>・help.html</td><td>ヘルプ・ファイル</td></tr>
+        <tr><td>・INSTALL.bat</td><td>インストール・バッチ・ファイル</td></tr>
+        <tr><td>・makeShortCut.wsf</td><td>ショートカット作成用スクリプト・ファイル</td></tr>
+        <tr><td>・S3D.exe</td><td>本アプリケーション本体</td></tr>
+        <tr><td>・S3D.ini</td><td>本アプリケーションのiniファイル</td></tr>
+        <tr><td>・QtCore4.dll</td><td>Qtのダイナミック・リンク・ライブラリ</td></tr>
+        <tr><td>・QtGui4.dll</td><td>Qtのダイナミック・リンク・ライブラリ</td></tr>
+        <tr><td>・mingwm10.dll</td><td>Qtのダイナミック・リンク・ライブラリ</td></tr>
+        <tr><td>・TAR32.DLL</td><td>tar.gz圧縮用ダイナミック・リンク・ライブラリ</td></tr>
+        <tr><td>・S3D.qm</td><td>日本語用言語ファイル</td></tr>
+        <tr><td colspan="2"></tr>
+        <tr><td>・pluginsフォルダ</td><td>Qtプラグイン</td></tr>
+        <tr><td colspan="2"></tr>
+        <tr><td>・srcフォルダ</td><td>本プログラムのソースファイル</td></tr>
+        <tr><td colspan="2"></tr>
+        <tr><td colspan="2">・csrcフォルダ</td></tr>
+        <tr><td>　tar32_1-20090305-010003.tar.gz</td><td>tar32.dllソース</td></tr>
+        <tr><td>　gnupg-w32cli-1.4.9.exe</td><td>GnuPGソース</td></tr>
+        <tr><td>　qt-win-opensource-4.5.1-mingw.exe</td><td>Qtソース</td></tr>
+        <tr><td colspan="2"></tr>
+        <tr><td colspan="2">・docフォルダ</td></tr>
+        <tr><td>　readme.txt</td><td>readmeファイル</td></tr>
+        <tr><td>　COPYING.txt</td><td>GNU 一般公有使用許諾書</td></tr>
+        <tr><td colspan="2">　GnuPG暗号化コマンド抜粋.txt</td></tr>
+        <tr><td colspan="2">　GnuPG復号化コマンド抜粋.txt</td></tr>
+      </table></td>
+    </tr>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">２．</TD>
+      <TD width="95%" valign="top"><a name="setup2">インストール方法</a></TD>
+    </TR>
+    <tr>
+      <td></td>
+      <td>
+<!-- テーブルのネスト Start-->
+        <table width="100%">
+          <tr>
+            <td align="right" valign="top" width="5%">１）</td>
+            <td valign="top" width="95%">S3D.zipファイルの上でマウス右クリックします。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">２）</td>
+            <td valign="top" width="95%">すべて展開を選択します。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">３）</td>
+            <td valign="top" width="95%">展開ウィザードが開きますので、次へボタンを押下します。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">４）</td>
+            <td valign="top" width="95%">ファイル展開先フォルダは適当なローカルフォルダを選択し、次へボタンを押下します。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">５）</td>
+            <td valign="top" width="95%">完了ボタンを押下します。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">６）</td>
+            <td valign="top" width="95%">展開されたフォルダ内の「INSTALL.bat」をダブルクリックすると、最初にGnuPGのインストーラが起動します。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%"></td>
+            <td valign="top" width="95%">（S3Dを動作させるには、GnuPGをインストールする必要があります。）</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">７）</td>
+            <td valign="top" width="95%">セットアップウイザードが表示されるので、以下手順でセットアップします。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%"></td>
+            <td valign="top" width="95%">・GnuPG version 1.4.9 というバージョン表示を確認し → NEXTボタンを押下する。<br>
+・ライセンス合意画面表示 → NEXTボタンを押下する。<br>
+・コンポーネント選択画面表示 → そのままNEXTボタンを押下する。<br>
+・言語選択画面表示 → ja-Japaneseまたはen-Englishを選択しNEXTボタンを押下する。<br>
+・インストールフォルダ選択画面表示 → デフォルトのままとする。<br>
+　32ビット版OS → C:\Program Files\GNU\GnuPG<br>
+　64ビット版OS → C:\Program Files (x86)\GNU\GnuPG<br>
+<br>
+　注意：インストールフォルダを変更した場合は、本アプリケーションの iniファイルに、その旨記述する必要があります。<br>
+<br>
+・ショートカット要否画面表示 → 作成しない（Do not create shortcuts)をクリックしInstallボタンを押下する。<br>
+・インストール完了画面表示 → セットアップ正常終了（successfully）を確認しNEXTボタンを押下する。<br>
+・Finishボタンを押下する。<br><br>
+セットアップウイザードが閉じ、GnuPGのインストールは終了です。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">８）</td>
+            <td valign="top" width="95%">「デスクトップにショートカットを作成しますか{Y/M}? と表示されますので、<br>
+作成する場合は「Y」を入力してください。<br>
+(セキュリティの警告が表示された場合は、「今回は許可」を選択してください)</td>
+          </tr>
+        </table>
+<!-- テーブルのネスト End-->
+      </td>
+    </tr>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top">３．</TD>
+      <TD width="95%" valign="top"><a name="setup2">アンインストール方法</a></TD>
+    </TR>
+    <tr>
+      <td></td>
+      <td>
+<!-- テーブルのネスト Start-->
+        <table width="100%">
+          <tr>
+            <td align="right" valign="top" width="5%">１）</td>
+            <td valign="top" width="95%">GnuPGインストール・フォルダ内の uninst-gnupg.exe をダブルクリックするとアンインストール・ウィザードが開始します。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">２）</td>
+            <td valign="top" width="95%">S3Dフォルダを削除します。</td>
+          </tr>
+        </table>
+<!-- テーブルのネスト End-->
+      </td>
+    </tr>
+</table>
+<br>
+<br>
+<a href="#helpTop">トップに戻る</a>
+<br>
+<br>
+<!-- 第三章　操作方法ー -->
+<table border="0" width="800">
+    <tr>
+        <td colspan="2" valign="top"><a name="opration">第三章　操作方法</a></td>
+    <tr>
+    <TR>
+      <TD width="5%" align="right" valign="top"></TD>
+      <TD width="95%" valign="top">この章では S3D でファイルを復号化する操作方法について記述します。<br></TD>
+    </TR>
+    <TR>
+      <TD colspan="2" valign="top">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD width="5%" align="right" valign="top"></TD>
+      <TD width="95%" valign="top">一連の操作手順は、以下の通りです。
+  <!-- テーブルのネスト Start-->
+          <table width="100%">
+            <tr>
+              <td align="right" valign="top" width="5%">１）</td>
+              <td valign="top" width="95%">復号化するファイルを選択します。</td>
+            </tr>
+            <tr>
+              <td align="right" valign="top" width="5%">３）</td>
+              <td valign="top" width="95%">復号化ファイルの出力先を指定します。</td>
+            </tr>
+            <tr>
+              <td align="right" valign="top" width="5%">４）</td>
+              <td valign="top" width="95%">復号化を実行します。</td>
+            </tr>
+          </table>
+  <!-- テーブルのネスト End-->
+      </TD>
+    </TR>
+    <TR>
+      <TD colspan="2" valign="top">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD colspan="2" valign="top">&nbsp;&nbsp;<a name="opration-main">【メイン画面】</a></TD>
+    </TR>
+    <TR>
+      <TD valign="top" align="right" width="5%">１．</TD>
+      <TD valign="top" width="95%"><a name="opration-main1">復号化するファイルの選択</a></TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD valign="top">
+<!-- テーブルのネスト Start-->
+        <table width="100%">
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">「<B>追加</B>」ボタン押下で、ファイル選択ダイアログを開きます。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">対象のファイルを選択します。<br>Ctrl＋マウス左クリック、Shift＋マウス左クリックで複数同時選択も可能です。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">または、対象のファイルを<B>ドラッグ＆ドロップ</B>で対象ファイル一覧表示エリアに追加することができます。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">選択ファイル数および合計ファイルサイズが表示されます。</td>
+          </tr>
+        </table>
+<!-- テーブルのネスト End-->
+      </TD>
+    </TR>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD valign="top" align="right" width="5%">２．</TD>
+      <TD valign="top" width="95%"><a name="opration-main2">選択の解除</a></TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD valign="top">
+<!-- テーブルのネスト Start-->
+        <table width="100%">
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">対象ファイル一覧表示エリアのファイルを選択（マウス左クリック）し、「<B>削除</B>」ボタン押下で、復号化対象から解除されます。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">複数ファイル一括選択での一括解除も可能です。</td>
+          </tr>
+        </table>
+<!-- テーブルのネスト End-->
+      </TD>
+    </TR>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD valign="top" align="right" width="5%">３．</TD>
+      <TD valign="top" width="95%"><a name="opration-main4">出力フォルダ選択</a></TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD valign="top">
+<!-- テーブルのネスト Start-->
+        <table width="100%">
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">「<B>参照</B>」ボタン押下で、フォルダ選択ダイアログを開きます。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">復号化したファイルの出力先を指定します。</td>
+          </tr>
+        </table>
+<!-- テーブルのネスト End-->
+      </TD>
+    </TR>
+    <TR>
+      <TD colspan="2">&nbsp;</TD>
+    </TR>
+    <TR>
+      <TD valign="top" align="right" width="5%">４．</TD>
+      <TD valign="top" width="95%"><a name="opration-main5">復号化実行</a></TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD valign="top">
+<!-- テーブルのネスト Start-->
+        <table width="100%">
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">「<B>復号化</B>」ボタンを押下します。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">秘密鍵のパスフレーズを入力します。<br>
+※秘密鍵の作成またはインポート方法については「doc/GnuPG復号化コマンド抜粋.txt」を参照してください。</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" width="5%">・</td>
+            <td valign="top" width="95%">復号化中のダイアログが表示され、復号化が終了すると「<B>復号化完了</B>」のダイアログが表示されます。</td>
+          </tr>
+        </table>
+<!-- テーブルのネスト End-->
+      </TD>
+    </TR>
+    <TR>
+      <TD colspan="2" valign="top">&nbsp;</TD>
+    </TR>
+</table>
+<br>
+<a href="#helpTop">トップに戻る</a>
+
+</BODY>
+</HTML>

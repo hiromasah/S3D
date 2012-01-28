@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="Shift_JIS" standalone="yes" ?>
+<package>
+  <job id="shortcut">
+  <?job error="true" debug="true" ?>
+  <object id="objFs" progid="Scripting.FileSystemObject" />
+  <script language="VBScript">
+  <![CDATA[
+    Set objShl=WScript.CreateObject("WScript.Shell")
+    Set objCut=objShl.CreateShortcut(objFs.BuildPath(objShl.SpecialFolders("Desktop"),"ファイル復号化支援ソフト(S3D).lnk"))  ' デスクトップ上にショートカットを作成
+    objCut.Description="ファイル復号化支援ソフト(S3D)" ' コメント
+    'objCut.TargetPath=WScript.ScriptFullName  ' リンク先のパス
+    objCut.TargetPath=objShl.CurrentDirectory & "\\S3D.exe"  ' リンク先のパス
+    ' 作業フォルダ（My Documents）
+    objCut.WorkingDirectory=objShl.CurrentDirectory
+    objCut.IconLocation=objShl.CurrentDirectory & "\\Briefcase_files.ico"  ' アイコン画像
+    objCut.Save ' 生成したショートカットを保存
+  ]]>
+  </script>
+  </job>
+</package>

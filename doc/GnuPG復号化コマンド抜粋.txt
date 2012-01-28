@@ -1,0 +1,192 @@
+《復号化を行う側のコマンド操作内容》
+
+凡例：
+  →| ：操作入力を示します。
+    | ：画面表示内容を示します。
+    ・：説明文を記述します。
+
+
+
+■コマンドプロンプト（DOS窓）を立ち上げます。
+
+■gpg.exeのインストールフォルダに移動します。
+  ex.) C:\Program Files\GNU\GnuPG の場合
+       →|C:>cd c:\Program Files\GNU\GnuPG
+         |C:\Program Files\GNU\GnuPG>
+
+  ・この状態で、下記の各コマンドでの操作が可能になります。
+
+
+■鍵ペアの生成方法
+    秘密鍵、公開鍵をgenコマンドで作成します。
+
+  →|>gpg --gen-key
+
+    ・鍵の種類は何も入力せずEnterを押下します。
+    |ご希望の鍵の種類を選択してください。
+    |(1) DSAとElgamal（既定）
+    |(2) DSA（署名のみ）
+    |(3) RSA（署名のみ）
+  →|選択は？
+    ・(1)DSAとElgamal（規定）を選択したことになります。
+
+    ・鍵のサイズは何も入力せずEnterを押下します。
+    |DSA keypair will have 1024 bits.
+    |ELG-E keys may be between 1024 and 4096 bits long.
+  →|What keysize do you want?(2048)
+    ・鍵のサイズは2048を指定したことになります。
+
+    ・鍵の有効期限は何も入力せずEnterを押下します。
+    |鍵の有効期限を指定してください。
+    |     0  = 鍵は無期限
+    |  <n>   = 鍵は n 日間で満了
+    |  <n>w  = 鍵は n 週間で満了
+    |  <n>m  = 鍵は n か月間で満了
+    |  <n>y  = 鍵は n 年間で満了
+  →|鍵の有効期限は？(0)
+    ・ 0 = 鍵は無期限 を指定したことになります。
+    
+    ・間違いがなければ"y"を入力します。
+  →|これで正しいですか？（y/N) y
+
+    ・鍵の同定のための情報を入力します。
+
+    |あなたの鍵を同定するためにユーザーIDが必要です。
+    |このソフトは本名、コメント、電子メールアドレスから
+    |次の書式でユーザIDを構成します：
+    |    "Heinrich Heine (Der Dichter) <heinrichh@duesseldorf.de>"
+
+    ・本名は5文字以上の半角英数字で入力します。
+      ex.) SAINT-EMILION
+  →|本名：SAINT-EMILION
+
+    ・電子メールアドレスの入力は任意です。（入力しなくても構いません）
+  →|電子メール・アドレス：
+
+    ・コメントの入力は任意です。（入力しなくても構いません）
+  →|コメント：
+
+    ・ 修正が必要な場合は、それぞれの英字を、内容がOKならば"O"を入力します。
+    |次のユーザIDを選択しました：
+    |"SAINT-EMILION"
+  →|名前(N)、コメント(C)、電子メール(E)の変更、またはOK(O)か終了(Q)？
+
+    ・パスフレーズを入力します。
+      パスフレーズはスペースを含ませることもでき、長さの制限もありません。
+      パスフレーズは大事なもので、これを忘れると複合化が出来なくなります。
+      ex.)設定するパスフレーズ：CHATEAU FONTBERNARD
+
+    |秘密鍵を保護するためにパスフレーズがいります。
+    |パスフレーズを入力：CHATEAU FONTBERNARD
+    |パスフレーズを再入力：CHATEAU FONTBERNARD
+
+    ・パスフレーズを入力すると乱数生成のメッセージが表示されます。
+
+    |今から長い乱数を生成します。キーボードを打つとか、マウスを動かすとか、
+    |ディスクにアクセスするとかの他のことをすると、乱数生成子で乱雑さの大きな
+    |いい乱数を生成しやすくなるので、お勧めいたします。
+
+    |++++++++.+++++++++++++..+++++
+
+    ・乱数生成が終了し、信用データベース、公開鍵・秘密鍵の生成メッセージが表示されます。
+
+    |gpg: C:/Documents and Settings/Administrator/Application Data/gnupg\trustdb.gpg
+    |信用データベースができました
+    |>gpg: 鍵240A50C8を絶対的に信用するように記録しました
+    |>公開鍵と秘密鍵を生成し、署名しました。
+    |>gpg: 信用データベースの検査
+    |>gpg: 最小の「ある程度の信用」3、最小の「全面的信用」1、PGP信用モデル
+    |>gpg: 深さ：0 有効性：1 署名：0 信用：0-, 0q, 0n, 0m, 0f, 1u
+    |>pub   1024D/240A50C8 2009-06-07
+    |>                  指紋 = 8E3C 473F 2021 6CC4 1E1F  9E5D 9CC9 A0E9 240A 50C8
+    |>uid                   SAINT-EMILION
+    |>sub   2048g/96446C0B 2009-06-07
+
+    ・以上で秘密鍵、公開鍵のペア作成は終了です。
+
+
+■秘密鍵をファイルに書き出す
+
+  ・秘密鍵をファイルに書き出して、保管することができます。
+
+  ・seckey.asc は出力するファイル名称（任意の名称）です。
+  ・SAINT-EMILION は鍵のユーザIDの全てまたは一部を指定します。
+  ・-a オプションでASCII形式で出力します。
+
+  →|>gpg -a --export-secret-keys SAINT-EMILION > testseckey.asc
+
+  （・バイナリ形式で出力する場合は-o オプションを使用します。）
+  （→ >gpg -o testseckey.bin --export-secret-keys SAINT-EMILION ）
+
+  ★カレントフォルダに「testseckey.asc」ファイルが作成されます。
+
+
+■秘密鍵をファイルからインポートする
+
+  ・他のPCで作成し、ファイルに書き出して保管していた秘密鍵をインポートすることができます。
+
+  ・testseckey.asc は秘密鍵のファイル名称です。
+
+  →|>gpg --import testseckey.asc
+    |gpg: 鍵B4C32851: 秘密鍵を読み込みました
+    |gpg: 鍵B4C32851:“Public Key For Test (This is test for public key.) <Test01@abc
+    |de.co.jp>”変更なし
+    |gpg:     処理数の合計: 1
+    |gpg:         変更なし: 1
+    |gpg:   秘密鍵の読出し: 1
+    |gpg:   秘密鍵の読込み: 1
+
+
+■暗号化する側へ渡す公開鍵を作成する
+
+  ・受け渡し用の公開鍵はexportコマンドで作成します。
+
+  ・pubkey.asc は出力するファイル名称（任意の名称）です。
+  ・SAINT-EMILION は鍵のユーザIDの全てまたは一部を指定します。
+  ・-a オプションでASCII形式で出力します。
+
+  →|>gpg -a --export SAINT-EMILION > pubkey.asc
+
+  （・バイナリ形式で出力する場合は-o オプションを使用します。）
+  （→ >gpg -o pubkey.bin --export SAINT-EMILION ）
+
+  ★カレントフォルダに「pubkey.asc」ファイルが作成されます。
+
+  ファイル内容（抜粋）
+  -----BEGIN PGP PUBLIC KEY BLOCK-----
+  Version: GnuPG v1.4.9 (MingW32)
+
+  mQGiBEorkTERBACCBU5AZ4Ngk76B2ZyygoA1cAUB63SXN1N1J5kzR6IUYkdjQ7Iv
+  B9VIiJaSeN+iVCQk3r5mX2q9sJe2Nikhc9QsntRKk2gs3jAXSbLjVRER6FwQVKoX
+    ・
+    ・
+  aiBOfW9miEkEGBECAAkFAkorkTECGwwACgkQnMmg6SQKUMgkZgCfaZ2y5YPkzZ2m
+  JQruPFobNzf3MwIAnRIG/Tje60v2T/xGyrROGOWCQx7y
+  =Xoto
+  -----END PGP PUBLIC KEY BLOCK-----
+
+  ★pubkey.asc の中身を電子メールに貼り付けて送ることも可能ですが、
+    その場合は悪意をもった者があなたに成りすまして送ったものかどうかを
+    受け取った人が判断できない可能性があります。
+    pubkey.asc をフロピーディスクなどに入れて手渡すのが一番安全に渡す方法です。
+
+
+■公開鍵を使用して暗号化されたファイルを、秘密鍵で復号化する
+  
+  ex.)暗号化されたファイルのファイル名が testtext.tgz.gpg、復号化後のファイル名が testtext.tgzの場合
+  ・パスフレーズには鍵ペア作成時に指定したパスフレーズを入力します。
+
+  →|>gpg -d testtext.tgz.gpg > testtext.tgz
+
+    |次のユーザの秘密鍵のロックを解除するには
+    |パスフレーズがいります："SAINT-EMILION"
+    |2048ビットELG-E鍵，ID 96446C0B作成日付は2009-06-07（主鍵ID 240A50C8）
+    |
+  →|パスフレーズを入力：******
+    |
+    |gpg： 2048-ビットELG-E鍵，ID 96446C0B, 日付2009-06-07に暗号化されました
+    |        "SAINT-EMILION"
+
+  ・カレントフォルダに、testtext.tgzというファイル名で復号化されたファイルが
+    作成されます。
+
